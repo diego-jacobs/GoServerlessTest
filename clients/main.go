@@ -36,7 +36,7 @@ func checkErr(err error) {
 }
 
 func getCLients() []Client {
-	db, err := sql.Open("mysql", "go4qvyzl3xdayu8s:x47w0u0ulqexnl52@tcp(otmaa16c1i9nwrek.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306)/v1wq1ics1m037sn6?parseTime=true")
+	db, err := sql.Open("mysql", "")
 	checkErr(err)
 
 	// query
