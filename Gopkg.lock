@@ -23,6 +23,14 @@
   version = "v1.4.0"
 
 [[projects]]
+  digest = "1:01a9c5b32c7e4b908b333f3d4436e9ace91bfb532e4998574c4bdd9db7a38252"
+  name = "github.com/tkanos/gonfig"
+  packages = ["."]
+  pruneopts = ""
+  revision = "e83209aed2d171bab5ffb312a1e630110481cb99"
+  version = "1.0"
+
+[[projects]]
   digest = "1:c1771ca6060335f9768dff6558108bc5ef6c58506821ad43377ee23ff059e472"
   name = "google.golang.org/appengine"
   packages = ["cloudsql"]
@@ -37,6 +45,7 @@
     "github.com/aws/aws-lambda-go/events",
     "github.com/aws/aws-lambda-go/lambda",
     "github.com/go-sql-driver/mysql",
+    "github.com/tkanos/gonfig",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

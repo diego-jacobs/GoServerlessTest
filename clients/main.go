@@ -4,11 +4,17 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
+	"os"
+	"path"
+	"path/filepath"
+	"runtime"
+	"strings"
 	"time"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/tkanos/gonfig"
 )
 
 //Client is a representation of a client
@@ -24,6 +30,22 @@ type Client struct {
 	FechaActualizacion time.Time      `json:"fechaActualizacion"`
 }
 
+type Configuration struct {
+	Connection_String string
+}
+
+func getFileName() string {
+	env := os.Getenv("ENV")
+	if len(env) == 0 {
+		env = "dev"
+	}
+	filename := []string{"config.", env, ".json"}
+	_, dirname, _, _ := runtime.Caller(0)
+	filePath := path.Join(filepath.Dir(dirname), strings.Join(filename, ""))
+
+	return filePath
+}
+
 //ListClientsResponse is a representation of a list of clients
 type ListClientsResponse struct {
 	Clients []Client `json:"clients"`
@@ -36,7 +58,13 @@ func checkErr(err error) {
 }
 
 func getCLients() []Client {
-	db, err := sql.Open("mysql", "")
+	configuration := Configuration{}
+	err := gonfig.GetConf(getFileName(), &configuration)
+	if err != nil {
+		os.Exit(500)
+	}
+
+	db, err := sql.Open("mysql", configuration.Connection_String)
 	checkErr(err)
 
 	// query
