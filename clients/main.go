@@ -4,52 +4,11 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
-	"os"
-	"path"
-	"path/filepath"
-	"runtime"
-	"strings"
-	"time"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/tkanos/gonfig"
 )
-
-//Client is a representation of a client
-type Client struct {
-	ID                 int            `json:"id"`
-	Nit                string         `json:"nit"`
-	RazonSocial        string         `json:"razonSocial"`
-	NombreComercial    sql.NullString `json:"nombreComercial"`
-	ServiciosPrestados sql.NullString `json:"serviciosPrestados"`
-	CreadoPorID        sql.NullInt64  `json:"creadoPorID"`
-	ActualizadoPorID   sql.NullInt64  `json:"actualizadoPorID"`
-	FechaCreacion      time.Time      `json:"fechaCreacion"`
-	FechaActualizacion time.Time      `json:"fechaActualizacion"`
-}
-
-type Configuration struct {
-	Connection_String string
-}
-
-func getFileName() string {
-	env := os.Getenv("ENV")
-	if len(env) == 0 {
-		env = "dev"
-	}
-	filename := []string{"config.", env, ".json"}
-	_, dirname, _, _ := runtime.Caller(0)
-	filePath := path.Join(filepath.Dir(dirname), strings.Join(filename, ""))
-
-	return filePath
-}
-
-//ListClientsResponse is a representation of a list of clients
-type ListClientsResponse struct {
-	Clients []Client `json:"clients"`
-}
 
 func checkErr(err error) {
 	if err != nil {
@@ -58,13 +17,9 @@ func checkErr(err error) {
 }
 
 func getCLients() []Client {
-	configuration := Configuration{}
-	err := gonfig.GetConf(getFileName(), &configuration)
-	if err != nil {
-		os.Exit(500)
-	}
+	configuration = getConf()
 
-	db, err := sql.Open("mysql", configuration.Connection_String)
+	db, err := sql.Open("mysql", configuration.ConnectionString)
 	checkErr(err)
 
 	// query
@@ -92,7 +47,7 @@ func getCLients() []Client {
 func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	var clients = getCLients()
 
-	body, _ := json.Marshal(&ListClientsResponse{
+	body, _ := json.Marshal(&ClientList{
 		Clients: clients,
 	})
 	return events.APIGatewayProxyResponse{
