@@ -54,13 +54,22 @@ package:
    - ./models/**
 
 functions:
-  clients:
+  getClients:
     handler: bin/getClients
     events:
       - http:
-          path: getClients
+          path: clients/get
           method: get
-
+  getClientById:
+    handler: bin/getClientById
+    events:
+      - http:
+          path: clients/get/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
