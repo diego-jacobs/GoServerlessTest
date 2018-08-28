@@ -50,17 +50,12 @@ package:
    - ./**
  include:
    - ./bin/**
+   - ./config/**
+   - ./models/**
 
 functions:
-  hello:
-    handler: bin/hello
-    events:
-      - http:
-          path: hello
-          method: post
-
   clients:
-    handler: bin/clients
+    handler: bin/getClients
     events:
       - http:
           path: getClients
