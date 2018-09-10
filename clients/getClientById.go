@@ -1,50 +1,17 @@
 package main
 
 import (
+	configuration "GoServerlessTest/config"
+	models "GoServerlessTest/models"
 	"context"
 	"database/sql"
 	"encoding/json"
-	"os"
-	"path"
-	"path/filepath"
-	"runtime"
 	"strconv"
-	"strings"
-
-	models "github.com/diego-jacobs/GoServerlessTest/models"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/tkanos/gonfig"
 )
-
-//Configuration is a representation of the enviroment configuration file
-type Configuration struct {
-	ConnectionString string
-}
-
-func getFileName() string {
-	env := os.Getenv("ENV")
-	if len(env) == 0 {
-		env = "dev"
-	}
-	filename := []string{"config.", env, ".json"}
-	_, dirname, _, _ := runtime.Caller(0)
-	filePath := path.Join(filepath.Dir(dirname), strings.Join(filename, ""))
-
-	return filePath
-}
-
-func getConf() Configuration {
-	configuration := Configuration{}
-	err := gonfig.GetConf(getFileName(), &configuration)
-	if err != nil {
-		os.Exit(500)
-	}
-
-	return configuration
-}
 
 func checkErr(err error) {
 	if err != nil {
@@ -53,9 +20,9 @@ func checkErr(err error) {
 }
 
 func getClientByID(ID int) models.Cliente {
+	var connectionString = configuration.GetConnectionString()
 
-func getClientById(ID int) Client {
-	db, err := sql.Open("mysql", "")
+	db, err := sql.Open("mysql", connectionString)
 	checkErr(err)
 	// query
 	rows, err := db.Query("SELECT * FROM cliente WHERE ID = ?", ID)
