@@ -10,7 +10,8 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
-	"time"
+
+	models "github.com/diego-jacobs/GoServerlessTest/models"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -45,38 +46,23 @@ func getConf() Configuration {
 	return configuration
 }
 
-//Client is a representation of a client
-type Client struct {
-	ID                 int            `json:"id"`
-	Nit                string         `json:"nit"`
-	RazonSocial        string         `json:"razonSocial"`
-	NombreComercial    sql.NullString `json:"nombreComercial"`
-	ServiciosPrestados sql.NullString `json:"serviciosPrestados"`
-	CreadoPorID        sql.NullInt64  `json:"creadoPorID"`
-	ActualizadoPorID   sql.NullInt64  `json:"actualizadoPorID"`
-	FechaCreacion      time.Time      `json:"fechaCreacion"`
-	FechaActualizacion time.Time      `json:"fechaActualizacion"`
-}
-
-//ListClientsResponse is a representation of a list of clients
-type ListClientsResponse struct {
-	Clients []Client `json:"clients"`
-}
-
 func checkErr(err error) {
 	if err != nil {
 		panic(err)
 	}
 }
+
+func getClientByID(ID int) models.Cliente {
+
 func getClientById(ID int) Client {
 	db, err := sql.Open("mysql", "")
 	checkErr(err)
 	// query
 	rows, err := db.Query("SELECT * FROM cliente WHERE ID = ?", ID)
 	checkErr(err)
-	var client Client
+	var client models.Cliente
 	for rows.Next() {
-		temp := Client{}
+		temp := models.Cliente{}
 		err = rows.Scan(&temp.ID, &temp.Nit, &temp.RazonSocial,
 			&temp.NombreComercial, &temp.ServiciosPrestados, &temp.CreadoPorID,
 			&temp.ActualizadoPorID, &temp.FechaCreacion, &temp.FechaActualizacion)
@@ -90,7 +76,7 @@ func getClientById(ID int) Client {
 // HandleRequest is the Handler to get a Client filtered by ID
 func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	var ID, err = strconv.Atoi(request.PathParameters["id"])
-	var client = getClientById(ID)
+	var client = getClientByID(ID)
 
 	body, _ := json.Marshal(client)
 
