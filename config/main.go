@@ -10,11 +10,6 @@ import (
 	"github.com/tkanos/gonfig"
 )
 
-//Configuration is a representation of the enviroment configuration file
-type Configuration struct {
-	ConnectionString string
-}
-
 func getFileName() string {
 	env := os.Getenv("ENV")
 	if len(env) == 0 {
@@ -27,7 +22,8 @@ func getFileName() string {
 	return filePath
 }
 
-func getConf() Configuration {
+//GetConfiguration returs all the configuration of the enviroment
+func GetConfiguration() Configuration {
 	configuration := Configuration{}
 	err := gonfig.GetConf(getFileName(), &configuration)
 	if err != nil {
@@ -35,4 +31,15 @@ func getConf() Configuration {
 	}
 
 	return configuration
+}
+
+//GetConnectionString returs the connection string of the enviroment
+func GetConnectionString() string {
+	configuration := Configuration{}
+	err := gonfig.GetConf(getFileName(), &configuration)
+	if err != nil {
+		os.Exit(500)
+	}
+
+	return configuration.ConnectionString
 }
