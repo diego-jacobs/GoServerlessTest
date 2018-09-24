@@ -13,27 +13,20 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func checkErr(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
 func getClientByID(ID int) models.Cliente {
 	var connectionString = configuration.GetConnectionString()
 
 	db, err := sql.Open("mysql", connectionString)
-	checkErr(err)
 	// query
 	rows, err := db.Query("SELECT * FROM cliente WHERE ID = ?", ID)
-	checkErr(err)
+	configuration.CheckErr(err)
 	var client models.Cliente
 	for rows.Next() {
 		temp := models.Cliente{}
 		err = rows.Scan(&temp.ID, &temp.Nit, &temp.RazonSocial,
 			&temp.NombreComercial, &temp.ServiciosPrestados, &temp.CreadoPorID,
 			&temp.ActualizadoPorID, &temp.FechaCreacion, &temp.FechaActualizacion)
-		checkErr(err)
+		configuration.CheckErr(err)
 		client = temp
 	}
 	db.Close()

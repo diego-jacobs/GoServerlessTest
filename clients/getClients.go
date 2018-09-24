@@ -21,17 +21,17 @@ func getClients() []models.Cliente {
 	var connectionString = configuration.GetConnectionString()
 
 	db, err := sql.Open("mysql", connectionString)
-	checkErr(err)
+	configuration.CheckErr(err)
 	// query
 	rows, err := db.Query("SELECT * FROM cliente")
-	checkErr(err)
+	configuration.CheckErr(err)
 	var clients []models.Cliente
 	for rows.Next() {
 		client := models.Cliente{}
 		err = rows.Scan(&client.ID, &client.Nit, &client.RazonSocial,
 			&client.NombreComercial, &client.ServiciosPrestados, &client.CreadoPorID,
 			&client.ActualizadoPorID, &client.FechaCreacion, &client.FechaActualizacion)
-		checkErr(err)
+		configuration.CheckErr(err)
 		clients = append(clients, client)
 	}
 	db.Close()
