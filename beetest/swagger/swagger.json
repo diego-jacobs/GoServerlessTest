@@ -1,0 +1,4465 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/actividad/": {
+            "get": {
+                "tags": [
+                    "actividad"
+                ],
+                "description": "get Actividad",
+                "operationId": "ActividadController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "actividad"
+                ],
+                "description": "create Actividad",
+                "operationId": "ActividadController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Actividad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Actividad"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/actividad/{id}": {
+            "get": {
+                "tags": [
+                    "actividad"
+                ],
+                "description": "get Actividad by id",
+                "operationId": "ActividadController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "actividad"
+                ],
+                "description": "update the Actividad",
+                "operationId": "ActividadController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Actividad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Actividad"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "actividad"
+                ],
+                "description": "delete the Actividad",
+                "operationId": "ActividadController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/area/": {
+            "get": {
+                "tags": [
+                    "area"
+                ],
+                "description": "get Area",
+                "operationId": "AreaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Area"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "area"
+                ],
+                "description": "create Area",
+                "operationId": "AreaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Area content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Area"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Area"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/area/{id}": {
+            "get": {
+                "tags": [
+                    "area"
+                ],
+                "description": "get Area by id",
+                "operationId": "AreaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Area"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "area"
+                ],
+                "description": "update the Area",
+                "operationId": "AreaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Area content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Area"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Area"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "area"
+                ],
+                "description": "delete the Area",
+                "operationId": "AreaController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/asignacion_cliente/": {
+            "get": {
+                "tags": [
+                    "asignacion_cliente"
+                ],
+                "description": "get AsignacionCliente",
+                "operationId": "AsignacionClienteController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionCliente"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "asignacion_cliente"
+                ],
+                "description": "create AsignacionCliente",
+                "operationId": "AsignacionClienteController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for AsignacionCliente content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionCliente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.AsignacionCliente"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/asignacion_cliente/{id}": {
+            "get": {
+                "tags": [
+                    "asignacion_cliente"
+                ],
+                "description": "get AsignacionCliente by id",
+                "operationId": "AsignacionClienteController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionCliente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "asignacion_cliente"
+                ],
+                "description": "update the AsignacionCliente",
+                "operationId": "AsignacionClienteController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for AsignacionCliente content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionCliente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionCliente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "asignacion_cliente"
+                ],
+                "description": "delete the AsignacionCliente",
+                "operationId": "AsignacionClienteController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/cliente/": {
+            "get": {
+                "tags": [
+                    "cliente"
+                ],
+                "description": "get Cliente",
+                "operationId": "ClienteController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Cliente"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cliente"
+                ],
+                "description": "create Cliente",
+                "operationId": "ClienteController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Cliente content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Cliente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Cliente"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/cliente/{id}": {
+            "get": {
+                "tags": [
+                    "cliente"
+                ],
+                "description": "get Cliente by id",
+                "operationId": "ClienteController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Cliente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "cliente"
+                ],
+                "description": "update the Cliente",
+                "operationId": "ClienteController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Cliente content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Cliente"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Cliente"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cliente"
+                ],
+                "description": "delete the Cliente",
+                "operationId": "ClienteController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/codigo_usuario/": {
+            "get": {
+                "tags": [
+                    "codigo_usuario"
+                ],
+                "description": "get CodigoUsuario",
+                "operationId": "CodigoUsuarioController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CodigoUsuario"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "codigo_usuario"
+                ],
+                "description": "create CodigoUsuario",
+                "operationId": "CodigoUsuarioController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for CodigoUsuario content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CodigoUsuario"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.CodigoUsuario"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/codigo_usuario/{id}": {
+            "get": {
+                "tags": [
+                    "codigo_usuario"
+                ],
+                "description": "get CodigoUsuario by id",
+                "operationId": "CodigoUsuarioController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CodigoUsuario"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "codigo_usuario"
+                ],
+                "description": "update the CodigoUsuario",
+                "operationId": "CodigoUsuarioController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for CodigoUsuario content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CodigoUsuario"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CodigoUsuario"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "codigo_usuario"
+                ],
+                "description": "delete the CodigoUsuario",
+                "operationId": "CodigoUsuarioController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/costo/": {
+            "get": {
+                "tags": [
+                    "costo"
+                ],
+                "description": "get Costo",
+                "operationId": "CostoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Costo"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "costo"
+                ],
+                "description": "create Costo",
+                "operationId": "CostoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Costo content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Costo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Costo"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/costo/{id}": {
+            "get": {
+                "tags": [
+                    "costo"
+                ],
+                "description": "get Costo by id",
+                "operationId": "CostoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Costo"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "costo"
+                ],
+                "description": "update the Costo",
+                "operationId": "CostoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Costo content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Costo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Costo"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "costo"
+                ],
+                "description": "delete the Costo",
+                "operationId": "CostoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/datos_prestaciones/": {
+            "get": {
+                "tags": [
+                    "datos_prestaciones"
+                ],
+                "description": "get DatosPrestaciones",
+                "operationId": "DatosPrestacionesController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosPrestaciones"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "datos_prestaciones"
+                ],
+                "description": "create DatosPrestaciones",
+                "operationId": "DatosPrestacionesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for DatosPrestaciones content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosPrestaciones"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.DatosPrestaciones"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/datos_prestaciones/{id}": {
+            "get": {
+                "tags": [
+                    "datos_prestaciones"
+                ],
+                "description": "get DatosPrestaciones by id",
+                "operationId": "DatosPrestacionesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosPrestaciones"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "datos_prestaciones"
+                ],
+                "description": "update the DatosPrestaciones",
+                "operationId": "DatosPrestacionesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for DatosPrestaciones content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosPrestaciones"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosPrestaciones"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "datos_prestaciones"
+                ],
+                "description": "delete the DatosPrestaciones",
+                "operationId": "DatosPrestacionesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/departamento/": {
+            "get": {
+                "tags": [
+                    "departamento"
+                ],
+                "description": "get Departamento",
+                "operationId": "DepartamentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Departamento"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "departamento"
+                ],
+                "description": "create Departamento",
+                "operationId": "DepartamentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Departamento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Departamento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Departamento"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/departamento/{id}": {
+            "get": {
+                "tags": [
+                    "departamento"
+                ],
+                "description": "get Departamento by id",
+                "operationId": "DepartamentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Departamento"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "departamento"
+                ],
+                "description": "update the Departamento",
+                "operationId": "DepartamentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Departamento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Departamento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Departamento"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "departamento"
+                ],
+                "description": "delete the Departamento",
+                "operationId": "DepartamentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/descuento/": {
+            "get": {
+                "tags": [
+                    "descuento"
+                ],
+                "description": "get Descuento",
+                "operationId": "DescuentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Descuento"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "descuento"
+                ],
+                "description": "create Descuento",
+                "operationId": "DescuentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Descuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Descuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Descuento"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/descuento/{id}": {
+            "get": {
+                "tags": [
+                    "descuento"
+                ],
+                "description": "get Descuento by id",
+                "operationId": "DescuentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Descuento"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "descuento"
+                ],
+                "description": "update the Descuento",
+                "operationId": "DescuentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Descuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Descuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Descuento"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "descuento"
+                ],
+                "description": "delete the Descuento",
+                "operationId": "DescuentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/permiso/": {
+            "get": {
+                "tags": [
+                    "permiso"
+                ],
+                "description": "get Permiso",
+                "operationId": "PermisoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Permiso"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "permiso"
+                ],
+                "description": "create Permiso",
+                "operationId": "PermisoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Permiso content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Permiso"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Permiso"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/permiso/{id}": {
+            "get": {
+                "tags": [
+                    "permiso"
+                ],
+                "description": "get Permiso by id",
+                "operationId": "PermisoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Permiso"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "permiso"
+                ],
+                "description": "update the Permiso",
+                "operationId": "PermisoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Permiso content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Permiso"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Permiso"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "permiso"
+                ],
+                "description": "delete the Permiso",
+                "operationId": "PermisoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/proyecto_presupuesto/": {
+            "get": {
+                "tags": [
+                    "proyecto_presupuesto"
+                ],
+                "description": "get ProyectoPresupuesto",
+                "operationId": "ProyectoPresupuestoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProyectoPresupuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "proyecto_presupuesto"
+                ],
+                "description": "create ProyectoPresupuesto",
+                "operationId": "ProyectoPresupuestoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ProyectoPresupuesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ProyectoPresupuesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ProyectoPresupuesto"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/proyecto_presupuesto/{id}": {
+            "get": {
+                "tags": [
+                    "proyecto_presupuesto"
+                ],
+                "description": "get ProyectoPresupuesto by id",
+                "operationId": "ProyectoPresupuestoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProyectoPresupuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "proyecto_presupuesto"
+                ],
+                "description": "update the ProyectoPresupuesto",
+                "operationId": "ProyectoPresupuestoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ProyectoPresupuesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ProyectoPresupuesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProyectoPresupuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "proyecto_presupuesto"
+                ],
+                "description": "delete the ProyectoPresupuesto",
+                "operationId": "ProyectoPresupuestoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/puesto/": {
+            "get": {
+                "tags": [
+                    "puesto"
+                ],
+                "description": "get Puesto",
+                "operationId": "PuestoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Puesto"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "puesto"
+                ],
+                "description": "create Puesto",
+                "operationId": "PuestoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Puesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Puesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Puesto"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/puesto/{id}": {
+            "get": {
+                "tags": [
+                    "puesto"
+                ],
+                "description": "get Puesto by id",
+                "operationId": "PuestoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Puesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "puesto"
+                ],
+                "description": "update the Puesto",
+                "operationId": "PuestoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Puesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Puesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Puesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "puesto"
+                ],
+                "description": "delete the Puesto",
+                "operationId": "PuestoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/registro_horas/": {
+            "get": {
+                "tags": [
+                    "registro_horas"
+                ],
+                "description": "get RegistroHoras",
+                "operationId": "RegistroHorasController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHoras"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "registro_horas"
+                ],
+                "description": "create RegistroHoras",
+                "operationId": "RegistroHorasController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroHoras content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHoras"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroHoras"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/registro_horas/{id}": {
+            "get": {
+                "tags": [
+                    "registro_horas"
+                ],
+                "description": "get RegistroHoras by id",
+                "operationId": "RegistroHorasController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHoras"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "registro_horas"
+                ],
+                "description": "update the RegistroHoras",
+                "operationId": "RegistroHorasController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroHoras content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHoras"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHoras"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "registro_horas"
+                ],
+                "description": "delete the RegistroHoras",
+                "operationId": "RegistroHorasController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/registro_horas_presupuesto/": {
+            "get": {
+                "tags": [
+                    "registro_horas_presupuesto"
+                ],
+                "description": "get RegistroHorasPresupuesto",
+                "operationId": "RegistroHorasPresupuestoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHorasPresupuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "registro_horas_presupuesto"
+                ],
+                "description": "create RegistroHorasPresupuesto",
+                "operationId": "RegistroHorasPresupuestoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroHorasPresupuesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHorasPresupuesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RegistroHorasPresupuesto"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/registro_horas_presupuesto/{id}": {
+            "get": {
+                "tags": [
+                    "registro_horas_presupuesto"
+                ],
+                "description": "get RegistroHorasPresupuesto by id",
+                "operationId": "RegistroHorasPresupuestoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHorasPresupuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "registro_horas_presupuesto"
+                ],
+                "description": "update the RegistroHorasPresupuesto",
+                "operationId": "RegistroHorasPresupuestoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RegistroHorasPresupuesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHorasPresupuesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistroHorasPresupuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "registro_horas_presupuesto"
+                ],
+                "description": "delete the RegistroHorasPresupuesto",
+                "operationId": "RegistroHorasPresupuestoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/ticket/": {
+            "get": {
+                "tags": [
+                    "ticket"
+                ],
+                "description": "get Ticket",
+                "operationId": "TicketController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Ticket"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ticket"
+                ],
+                "description": "create Ticket",
+                "operationId": "TicketController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Ticket content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Ticket"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Ticket"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/ticket/{id}": {
+            "get": {
+                "tags": [
+                    "ticket"
+                ],
+                "description": "get Ticket by id",
+                "operationId": "TicketController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Ticket"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ticket"
+                ],
+                "description": "update the Ticket",
+                "operationId": "TicketController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Ticket content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Ticket"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Ticket"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ticket"
+                ],
+                "description": "delete the Ticket",
+                "operationId": "TicketController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/ticket_message/": {
+            "get": {
+                "tags": [
+                    "ticket_message"
+                ],
+                "description": "get TicketMessage",
+                "operationId": "TicketMessageController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TicketMessage"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ticket_message"
+                ],
+                "description": "create TicketMessage",
+                "operationId": "TicketMessageController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TicketMessage content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TicketMessage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TicketMessage"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/ticket_message/{id}": {
+            "get": {
+                "tags": [
+                    "ticket_message"
+                ],
+                "description": "get TicketMessage by id",
+                "operationId": "TicketMessageController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TicketMessage"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ticket_message"
+                ],
+                "description": "update the TicketMessage",
+                "operationId": "TicketMessageController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TicketMessage content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TicketMessage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TicketMessage"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ticket_message"
+                ],
+                "description": "delete the TicketMessage",
+                "operationId": "TicketMessageController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/tipo_descuento/": {
+            "get": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "get TipoDescuento",
+                "operationId": "TipoDescuentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "create TipoDescuento",
+                "operationId": "TipoDescuentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TipoDescuento"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/tipo_descuento/{id}": {
+            "get": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "get TipoDescuento by id",
+                "operationId": "TipoDescuentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "update the TipoDescuento",
+                "operationId": "TipoDescuentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "delete the TipoDescuento",
+                "operationId": "TipoDescuentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/tipo_puesto/": {
+            "get": {
+                "tags": [
+                    "tipo_puesto"
+                ],
+                "description": "get TipoPuesto",
+                "operationId": "TipoPuestoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoPuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tipo_puesto"
+                ],
+                "description": "create TipoPuesto",
+                "operationId": "TipoPuestoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoPuesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoPuesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TipoPuesto"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/tipo_puesto/{id}": {
+            "get": {
+                "tags": [
+                    "tipo_puesto"
+                ],
+                "description": "get TipoPuesto by id",
+                "operationId": "TipoPuestoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoPuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "tipo_puesto"
+                ],
+                "description": "update the TipoPuesto",
+                "operationId": "TipoPuestoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoPuesto content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoPuesto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoPuesto"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tipo_puesto"
+                ],
+                "description": "delete the TipoPuesto",
+                "operationId": "TipoPuestoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/usuario/": {
+            "get": {
+                "tags": [
+                    "usuario"
+                ],
+                "description": "get Usuario",
+                "operationId": "UsuarioController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Usuario"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "usuario"
+                ],
+                "description": "create Usuario",
+                "operationId": "UsuarioController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Usuario content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Usuario"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Usuario"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/usuario/{id}": {
+            "get": {
+                "tags": [
+                    "usuario"
+                ],
+                "description": "get Usuario by id",
+                "operationId": "UsuarioController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Usuario"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "usuario"
+                ],
+                "description": "update the Usuario",
+                "operationId": "UsuarioController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Usuario content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Usuario"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Usuario"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "usuario"
+                ],
+                "description": "delete the Usuario",
+                "operationId": "UsuarioController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/usuario_socio/": {
+            "get": {
+                "tags": [
+                    "usuario_socio"
+                ],
+                "description": "get UsuarioSocio",
+                "operationId": "UsuarioSocioController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioSocio"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "usuario_socio"
+                ],
+                "description": "create UsuarioSocio",
+                "operationId": "UsuarioSocioController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UsuarioSocio content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioSocio"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.UsuarioSocio"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/usuario_socio/{id}": {
+            "get": {
+                "tags": [
+                    "usuario_socio"
+                ],
+                "description": "get UsuarioSocio by id",
+                "operationId": "UsuarioSocioController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioSocio"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "usuario_socio"
+                ],
+                "description": "update the UsuarioSocio",
+                "operationId": "UsuarioSocioController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UsuarioSocio content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioSocio"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioSocio"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "usuario_socio"
+                ],
+                "description": "delete the UsuarioSocio",
+                "operationId": "UsuarioSocioController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/usuario_trabajador/": {
+            "get": {
+                "tags": [
+                    "usuario_trabajador"
+                ],
+                "description": "get UsuarioTrabajador",
+                "operationId": "UsuarioTrabajadorController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioTrabajador"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "usuario_trabajador"
+                ],
+                "description": "create UsuarioTrabajador",
+                "operationId": "UsuarioTrabajadorController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UsuarioTrabajador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioTrabajador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.UsuarioTrabajador"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/usuario_trabajador/{id}": {
+            "get": {
+                "tags": [
+                    "usuario_trabajador"
+                ],
+                "description": "get UsuarioTrabajador by id",
+                "operationId": "UsuarioTrabajadorController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioTrabajador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "usuario_trabajador"
+                ],
+                "description": "update the UsuarioTrabajador",
+                "operationId": "UsuarioTrabajadorController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UsuarioTrabajador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioTrabajador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UsuarioTrabajador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "usuario_trabajador"
+                ],
+                "description": "delete the UsuarioTrabajador",
+                "operationId": "UsuarioTrabajadorController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Actividad": {
+            "title": "Actividad",
+            "type": "object",
+            "properties": {
+                "Abreviatura": {
+                    "type": "string"
+                },
+                "ActividadNoCargable": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "AreaId": {
+                    "$ref": "#/definitions/models.Area"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Area": {
+            "title": "Area",
+            "type": "object",
+            "properties": {
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "DepartamentoId": {
+                    "$ref": "#/definitions/models.Departamento"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.AsignacionCliente": {
+            "title": "AsignacionCliente",
+            "type": "object",
+            "properties": {
+                "ClienteId": {
+                    "$ref": "#/definitions/models.Cliente"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "UsuarioId": {
+                    "$ref": "#/definitions/models.Usuario"
+                }
+            }
+        },
+        "models.Cliente": {
+            "title": "Cliente",
+            "type": "object",
+            "properties": {
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nit": {
+                    "type": "string"
+                },
+                "NombreComercial": {
+                    "type": "string"
+                },
+                "RazonSocial": {
+                    "type": "string"
+                },
+                "ServiciosPrestados": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CodigoUsuario": {
+            "title": "CodigoUsuario",
+            "type": "object",
+            "properties": {
+                "Apellidos": {
+                    "type": "string"
+                },
+                "Codigo": {
+                    "type": "string"
+                },
+                "CreatedBy": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombres": {
+                    "type": "string"
+                },
+                "UpdatedBy": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Costo": {
+            "title": "Costo",
+            "type": "object",
+            "properties": {
+                "Costo": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaFinal": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaInicio": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "UsuarioId": {
+                    "$ref": "#/definitions/models.UsuarioTrabajador"
+                }
+            }
+        },
+        "models.DatosPrestaciones": {
+            "title": "DatosPrestaciones",
+            "type": "object",
+            "properties": {
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "Aguinaldo": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "BonificacionIncentivo": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Bono14": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "CuotaPatronal": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Depreciacion": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Gasolina": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "GastosIndirectos": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Indemnizacion": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "OtraBonificacion": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "OtrasPrestaciones": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Otros": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "PrestacionesSobreSueldo": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "SueldoBase": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "UsuarioId": {
+                    "$ref": "#/definitions/models.UsuarioTrabajador"
+                },
+                "Viaticos": {
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "models.Departamento": {
+            "title": "Departamento",
+            "type": "object",
+            "properties": {
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "NombreDepartamento": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Descuento": {
+            "title": "Descuento",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Monto": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "NombreDescuento": {
+                    "type": "string"
+                },
+                "PrestacionesId": {
+                    "$ref": "#/definitions/models.DatosPrestaciones"
+                },
+                "TipoDescuentoId": {
+                    "$ref": "#/definitions/models.TipoDescuento"
+                }
+            }
+        },
+        "models.Permiso": {
+            "title": "Permiso",
+            "type": "object",
+            "properties": {
+                "ActualizadoPor": {
+                    "type": "string"
+                },
+                "CreadoPor": {
+                    "type": "string"
+                },
+                "Etiqueta": {
+                    "type": "string"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Permiso": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ProyectoPresupuesto": {
+            "title": "ProyectoPresupuesto",
+            "type": "object",
+            "properties": {
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "Estado": {
+                    "type": "string"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Honorarios": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "NombrePresupuesto": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Puesto": {
+            "title": "Puesto",
+            "type": "object",
+            "properties": {
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "DepartamentoId": {
+                    "$ref": "#/definitions/models.Departamento"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "TipoPuestoId": {
+                    "$ref": "#/definitions/models.TipoPuesto"
+                },
+                "UsuarioId": {
+                    "$ref": "#/definitions/models.UsuarioTrabajador"
+                }
+            }
+        },
+        "models.RegistroHoras": {
+            "title": "RegistroHoras",
+            "type": "object",
+            "properties": {
+                "ActividadId": {
+                    "$ref": "#/definitions/models.Actividad"
+                },
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "Aprobado": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ClienteId": {
+                    "$ref": "#/definitions/models.Cliente"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaHoras": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "HorasExtraordinarias": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "HorasInvertidas": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IngresadoPorId": {
+                    "$ref": "#/definitions/models.UsuarioTrabajador"
+                },
+                "ProyectoPresupuestoId": {
+                    "$ref": "#/definitions/models.ProyectoPresupuesto"
+                }
+            }
+        },
+        "models.RegistroHorasPresupuesto": {
+            "title": "RegistroHorasPresupuesto",
+            "type": "object",
+            "properties": {
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "AreaId": {
+                    "$ref": "#/definitions/models.Area"
+                },
+                "ClienteId": {
+                    "$ref": "#/definitions/models.Cliente"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "HorasPresupuestadas": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ProyectoId": {
+                    "$ref": "#/definitions/models.ProyectoPresupuesto"
+                },
+                "UsuarioId": {
+                    "$ref": "#/definitions/models.UsuarioTrabajador"
+                }
+            }
+        },
+        "models.Ticket": {
+            "title": "Ticket",
+            "type": "object",
+            "properties": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LastMessage": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "LastUserId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Priority": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Subject": {
+                    "type": "string"
+                },
+                "UserCreatedId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.TicketMessage": {
+            "title": "TicketMessage",
+            "type": "object",
+            "properties": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Message": {
+                    "type": "string"
+                },
+                "Priority": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "TicketId": {
+                    "$ref": "#/definitions/models.Ticket"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.TipoDescuento": {
+            "title": "TipoDescuento",
+            "type": "object",
+            "properties": {
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "NombreTipoDescuento": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.TipoPuesto": {
+            "title": "TipoPuesto",
+            "type": "object",
+            "properties": {
+                "Abreviatura": {
+                    "type": "string"
+                },
+                "ActualizadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "CreadoPorId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaActualizacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "NombrePuesto": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Usuario": {
+            "title": "Usuario",
+            "type": "object",
+            "properties": {
+                "Apellidos": {
+                    "type": "string"
+                },
+                "ApiKey": {
+                    "type": "string"
+                },
+                "CodigoId": {
+                    "$ref": "#/definitions/models.CodigoUsuario"
+                },
+                "ConfirmationToken": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "EmailCanonical": {
+                    "type": "string"
+                },
+                "Enabled": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Initials": {
+                    "type": "string"
+                },
+                "LastLogin": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "PasswordRequestedAt": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Roles": {
+                    "description": "(DC2Type:array)",
+                    "type": "string"
+                },
+                "Salt": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "Username": {
+                    "type": "string"
+                },
+                "UsernameCanonical": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UsuarioSocio": {
+            "title": "UsuarioSocio",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.UsuarioTrabajador": {
+            "title": "UsuarioTrabajador",
+            "type": "object",
+            "properties": {
+                "Direccion": {
+                    "type": "string"
+                },
+                "Dpi": {
+                    "type": "string"
+                },
+                "FechaEgreso": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nit": {
+                    "type": "string"
+                },
+                "NumeroAfiliacionIgss": {
+                    "type": "string"
+                },
+                "Telefono": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "actividad",
+            "description": "ActividadController operations for Actividad\n"
+        },
+        {
+            "name": "area",
+            "description": "AreaController operations for Area\n"
+        },
+        {
+            "name": "asignacion_cliente",
+            "description": "AsignacionClienteController operations for AsignacionCliente\n"
+        },
+        {
+            "name": "cliente",
+            "description": "ClienteController operations for Cliente\n"
+        },
+        {
+            "name": "codigo_usuario",
+            "description": "CodigoUsuarioController operations for CodigoUsuario\n"
+        },
+        {
+            "name": "costo",
+            "description": "CostoController operations for Costo\n"
+        },
+        {
+            "name": "datos_prestaciones",
+            "description": "DatosPrestacionesController operations for DatosPrestaciones\n"
+        },
+        {
+            "name": "departamento",
+            "description": "DepartamentoController operations for Departamento\n"
+        },
+        {
+            "name": "descuento",
+            "description": "DescuentoController operations for Descuento\n"
+        },
+        {
+            "name": "permiso",
+            "description": "PermisoController operations for Permiso\n"
+        },
+        {
+            "name": "proyecto_presupuesto",
+            "description": "ProyectoPresupuestoController operations for ProyectoPresupuesto\n"
+        },
+        {
+            "name": "puesto",
+            "description": "PuestoController operations for Puesto\n"
+        },
+        {
+            "name": "registro_horas",
+            "description": "RegistroHorasController operations for RegistroHoras\n"
+        },
+        {
+            "name": "registro_horas_presupuesto",
+            "description": "RegistroHorasPresupuestoController operations for RegistroHorasPresupuesto\n"
+        },
+        {
+            "name": "ticket",
+            "description": "TicketController operations for Ticket\n"
+        },
+        {
+            "name": "ticket_message",
+            "description": "TicketMessageController operations for TicketMessage\n"
+        },
+        {
+            "name": "tipo_descuento",
+            "description": "TipoDescuentoController operations for TipoDescuento\n"
+        },
+        {
+            "name": "tipo_puesto",
+            "description": "TipoPuestoController operations for TipoPuesto\n"
+        },
+        {
+            "name": "usuario",
+            "description": "UsuarioController operations for Usuario\n"
+        },
+        {
+            "name": "usuario_socio",
+            "description": "UsuarioSocioController operations for UsuarioSocio\n"
+        },
+        {
+            "name": "usuario_trabajador",
+            "description": "UsuarioTrabajadorController operations for UsuarioTrabajador\n"
+        }
+    ]
+}
