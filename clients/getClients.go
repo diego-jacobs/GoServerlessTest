@@ -1,10 +1,9 @@
 package main
 
 import (
-	configuration "GoServerlessTest/config"
-	models "GoServerlessTest/models"
+	"GoServerlessTest/beetest/models"
+	"GoServerlessTest/utils"
 	"context"
-	"database/sql"
 	"encoding/json"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -12,38 +11,41 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-//ListClientsResponse is a representation of a list of clients
-type ListClientsResponse struct {
-	Clients []models.Cliente `json:"clients"`
-}
+// HandleGetAllClientsRequest is the Handler to get the list of Clients
+func HandleGetAllClientsRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	utils.InitORM()
 
-func getClients() []models.Cliente {
-	var connectionString = configuration.GetConnectionString()
+	var fields []string
+	var sortby []string
+	var order []string
+	var query = make(map[string]string)
+	var limit int64 = 10
+	var offset int64
 
-	db, err := sql.Open("mysql", connectionString)
-	configuration.CheckErr(err)
-	// query
-	rows, err := db.Query("SELECT * FROM cliente")
-	configuration.CheckErr(err)
-	var clients []models.Cliente
-	for rows.Next() {
-		client := models.Cliente{}
-		err = rows.Scan(&client.ID, &client.Nit, &client.RazonSocial,
-			&client.NombreComercial, &client.ServiciosPrestados, &client.CreadoPorID,
-			&client.ActualizadoPorID, &client.FechaCreacion, &client.FechaActualizacion)
-		configuration.CheckErr(err)
-		clients = append(clients, client)
+	list, err := models.GetAllCliente(query, fields, sortby, order, offset, limit)
+
+	if err != nil {
+		response := utils.APIResponse{
+			Data:    nil,
+			Success: false,
+			Message: "",
+			Error:   err,
+		}
+		body, _ := json.Marshal(response)
+
+		return events.APIGatewayProxyResponse{
+			Body:       string(body),
+			StatusCode: 400,
+		}, nil
 	}
-	db.Close()
-	return clients
-}
 
-// HandleRequest is the Handler to get the list of Clients
-func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var clients = getClients()
-	body, _ := json.Marshal(&ListClientsResponse{
-		Clients: clients,
-	})
+	response := utils.APIResponse{
+		Data:    list,
+		Success: true,
+		Message: "",
+		Error:   err,
+	}
+	body, _ := json.Marshal(response)
 
 	return events.APIGatewayProxyResponse{
 		Body:       string(body),
@@ -52,5 +54,5 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 }
 
 func main() {
-	lambda.Start(HandleRequest)
+	lambda.Start(HandleGetAllClientsRequest)
 }

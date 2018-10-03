@@ -50,8 +50,6 @@ package:
    - ./**
  include:
    - ./bin/**
-   - ./config/**
-   - ./models/**
 
 functions:
   getClients:
